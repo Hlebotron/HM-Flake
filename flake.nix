@@ -3,16 +3,16 @@
 
   inputs = {
     # Specify the source of Home Manager and Nixpkgs.
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixvim = {
-      url = "github:nix-community/nixvim/nixos-24.11";
+      url = "github:nix-community/nixvim/nixos-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    stylix.url = "github:danth/stylix/release-24.11";
+    stylix.url = "github:danth/stylix/release-25.05";
   };
 
   outputs = { nixpkgs, home-manager, nixvim, stylix, ... }@inputs:
@@ -25,20 +25,37 @@
         };
       };
     in {
-      homeConfigurations."sasha" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        extraSpecialArgs = { inherit inputs; };
+      homeConfigurations = {
+        sasha = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = { inherit inputs; };
 
-        # Specify your home configuration modules here, for example,
-        # the path to your home.nix.
-        modules = [ 
-          ./home.nix 
-          nixvim.homeManagerModules.nixvim
-          stylix.homeManagerModules.stylix
-        ];
+          # Specify your home configuration modules here, for example,
+          # the path to your home.nix.
+          modules = [ 
+            ./users/sasha/home.nix 
+            nixvim.homeManagerModules.nixvim
+            stylix.homeModules.stylix
+          ];
 
-        # Optionally use extraSpecialArgs
-        # to pass through arguments to home.nix
+          # Optionally use extraSpecialArgs
+          # to pass through arguments to home.nix
+        };
+        maxim = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = { inherit inputs; };
+
+          # Specify your home configuration modules here, for example,
+          # the path to your home.nix.
+          modules = [ 
+            ./users/maxim/home.nix 
+            #nixvim.homeManagerModules.nixvim
+            stylix.homeModules.stylix
+          ];
+
+          # Optionally use extraSpecialArgs
+          # to pass through arguments to home.nix
+        };
       };
     };
 }

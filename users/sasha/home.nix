@@ -54,7 +54,7 @@ let
 in {
   imports = [
     #./scripts.nix
-    ./nixvim.nix
+    ../../modules/nixvim.nix
   ];
   #stylix.autoEnable = true;
   programs = {
