@@ -38,7 +38,7 @@ in {
         #n = "mousepad";
         #nrs = "nh os switch /etc/nixos";
         hms = "nh home switch ~/.config/home-manager/";
-        home = "mousepad ~/.config/home-manager/home.nix";
+        home = "mousepad ~/.config/home-manager/$USER/home.nix";
         #nixos = "cd /etc/nixos";
         c = "z";
       };
