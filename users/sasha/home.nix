@@ -79,7 +79,7 @@ in {
         n = "nvim";
         nrs = "nh os switch /etc/nixos";
         hms = "nh home switch /home/sasha/.config/home-manager";
-        home = "nvim ~/.config/home-manager/$USER/home.nix";
+        home = "nvim ~/.config/home-manager/users/$USER/home.nix";
         nixos = "cd /etc/nixos";
         c = "z";
         dev = "nix develop";
