@@ -1,24 +1,24 @@
 { config, pkgs, inputs, stylix, ... }:
 
 let
-    packages = with pkgs; [
-      gnomeExtensions.airpod-battery-monitor 
-      xfce.mousepad
-      adwaita-icon-theme
-      gimp
-      #gnome-characters
-      home-manager
-      prismlauncher
-      steam
-      fastfetch
-      eog
-      gnome-terminal
-      papers
-      libreoffice
-    ];
-    packages-unstable = with pkgs.unstable; [
-        
-    ];
+  packages = with pkgs; [
+    gnomeExtensions.airpod-battery-monitor 
+    xfce.mousepad
+    adwaita-icon-theme
+    gimp
+    #gnome-characters
+    home-manager
+    prismlauncher
+    steam
+    fastfetch
+    eog
+    gnome-terminal
+    papers
+    libreoffice
+  ];
+  packages-unstable = with pkgs.unstable; [
+
+  ];
 in {
   imports = [
     #./scripts.nix
@@ -38,7 +38,7 @@ in {
         #n = "mousepad";
         #nrs = "nh os switch /etc/nixos";
         hms = "nh home switch ~/.config/home-manager/";
-        home = "mousepad ~/.config/home-manager/users/$USER/home.nix";
+        home = "mousepad ~/.config/home-manager/$USER/home.nix";
         #nixos = "cd /etc/nixos";
         c = "z";
       };
@@ -54,9 +54,9 @@ in {
     base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-city-dark.yaml";
     image = ./wallpaper.png;
     cursor = {
-        name = "Bibata-Modern-Classic";
-        package = pkgs.bibata-cursors;
-        size = 20;
+      name = "Bibata-Modern-Classic";
+      package = pkgs.bibata-cursors;
+      size = 20;
     };
   };
   home = {
