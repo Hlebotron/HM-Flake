@@ -2,6 +2,7 @@
 
 let
 	packages = with pkgs; [
+		nyxt
 		pavucontrol
 		adwaita-icon-theme
 		brightnessctl
@@ -61,9 +62,31 @@ in {
 		emacs = {
 			enable = true;
 			extraPackages = epkgs: with epkgs; [
+				org-bullets
 				evil
 				multiple-cursors
+				nixos-options
+				key-chord
+				tree-sitter
 			];
+			extraConfig = ''
+				(setq inhibit-startup-message 1)
+				(menu-bar-mode 0)
+				(tool-bar-mode 0)
+				(scroll-bar-mode 0)
+				(setq display-line-numbers 'relative)
+				(setq inhibit-startup-message 1)
+				(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+				(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+				(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+				(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+				(require 'multiple-cursors)
+				(evil-mode 0)
+				(multiple-cursors-mode 1)
+				(require 'key-chord)
+				(key-chord-define-global "fg" "C-s")
+
+			'';
 		};
 		bash = {
 			enable = true;
@@ -79,7 +102,7 @@ in {
 				n = "nvim";
 				nrs = "nh os switch /etc/nixos";
 				hms = "nh home switch /home/sasha/.config/home-manager";
-				home = "nvim ~/.config/home-manager/$USER/home.nix";
+				home = "nvim ~/.config/home-manager/users/$USER/home.nix";
 				nixos = "cd /etc/nixos";
 				c = "z";
 				dev = "nix develop";
