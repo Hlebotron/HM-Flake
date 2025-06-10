@@ -1,30 +1,45 @@
-(setq inhibit-startup-message 1)
+;; (unless (file-exists-p "~/.emacs")
+;;   (create-empty-file "~/.emacs"))
+;;(add-to-list 'default-frame-alist
+;;    '(font . "dejavu sans mono-15"))
+;; (set-frame-font "-ukwn-iosevka-regular-normal-expanded-*-13-*-*-*-d-0-iso10646-11")
+(set-face-attribute 'default nil :family "iosevka")
 (menu-bar-mode 0)
 (tool-bar-mode 0)
 (scroll-bar-mode 0)
 (ido-mode 1)
+(multiple-cursors-mode 1)
 (ivy-mode 1)
-(setq display-line-numbers 'relative)
-(setq inhibit-startup-message 1)
+(auto-revert-mode 1)
+(setq display-line-numbers 'relative
+      inhibit-startup-message 1)
+(require 'nix-mode)
+(require 'multiple-cursors)
+(require 'key-chord)
+(require 'magit)
+;; (require 'org-mode)
 
-(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+;; (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
-(require 'multiple-cursors)
-(evil-mode 0)
-(defun org-setup () "Configure org mode"
+
+;; (evil-mode 1)
+(defun org-setup () "configure org mode"
        (setq org-hide-emphasis-markers t)
-       (setq org-ellipsis " ⏷")
-       (setq visual-line-mode 1)
-       (setq auto-fill-mode 1)
-       (font-lock-mode 1)
+       	     org-ellipsis " ⏷"
+	     visual-line-mode 0
+	     auto-fill-mode 1)
+       (font-lock-mode 1)				
        (org-bullets-mode 1)
        (prettify-symbols-mode 1)
+       (font-lock-add-keywords 'org-mode
+			       '(("^ *\\([-]\\) "
+				  (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
        (custom-theme-set-faces
 	'user
-	'(variable-pitch ((t (:family "ETBembo" :height 180 :weight thin))))
-	'(fixed-pitch ((t ( :family "Fira Code Retina" :height 160)))))
+	'(variable-pitch ((t (:family "etbembo" :height 180 :weight thin))))
+	'(fixed-pitch ((t ( :family "fira code retina" :height 160)))))
        (dolist (face '(
 		       (org-level-1 . 1.2)
 		       (org-level-2 . 1.1)
@@ -44,25 +59,15 @@
        (set-face-attribute 'org-checkbox nil :height 1.0 :inherit 'fixed-pitch)
        (put 'downcase-region 'disabled nil)
        (add-hook 'org-mode-hook (lambda ()
-				  "Beautify Org Checkbox Symbol"
+				  "beautify org checkbox symbol"
 				  (setq prettify-symbols-alist
 					(prettify-utils-generate
 					 ("[ ]" "☐")
-					 ("[X]" "☑")
+					 ("[x]" "☑")
 					 ("[-]" "❍")))
 				  (prettify-symbols-mode)))
-       )
 
-       ;; (setq font-lock-maximum-decoration 1))
+       
 
-(multiple-cursors-mode 1)
 
-(require 'key-chord)
 (add-hook 'org-mode-hook 'org-setup)
-(key-chord-define-global "fg" "C-s")
-;; (use-package 'org-bullets
-;;   :config
-;;   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
-(font-lock-add-keywords 'org-mode
-                         '(("^ *\\([-]\\) "
-                            (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
