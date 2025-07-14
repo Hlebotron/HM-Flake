@@ -11,7 +11,20 @@
 (multiple-cursors-mode 1)
 (ivy-mode 1)
 (auto-revert-mode 1)
-(setq display-line-numbers 'relative
+;; (use-package lsp-mode
+;;   :commands (lsp lsp-deferred)
+;;   :init
+;;   ; to get lsp-mode going with xtensa
+;;   (setq lsp-clients-clangd-executable "clangd")
+;;   (setq lsp-clients-clangd-args '("--query-driver=/**/bin/xtensa-esp32-elf-*" "--background-index" "--header-insertion=iwyu" "-j=4" ))
+;;   :hook
+;;   (c-mode . lsp)
+;;   (lsp-mode . lsp-enable-which-key-integration))
+
+;; (use-package lsp-ui
+;;   :commands lsp-ui-mode) 
+
+(setq global-display-line-numbers 'relative
       inhibit-startup-message 1)
 (require 'nix-mode)
 (require 'multiple-cursors)

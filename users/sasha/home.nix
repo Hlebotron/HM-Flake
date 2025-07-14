@@ -1,7 +1,11 @@
-	{ config, pkgs, nixvim, inputs, stylix, ... }:
+{ config, pkgs, nixvim, inputs, stylix, ... }:
 
 let
 	packages = with pkgs; [
+		rlwrap
+		steamcmd
+		xwayland-satellite
+		platformio
 		grim
 		nyxt
 		pavucontrol
@@ -22,6 +26,7 @@ let
 		alacritty		
 		prismlauncher
 		steam
+		steam-run
 		fastfetch
 		#cargo
 		#rustup
@@ -63,6 +68,9 @@ let
 		emacs = {
 			enable = true;
 			extraPackages = epkgs: with epkgs; [
+        zeal-at-point
+        caddyfile-mode
+        yaml-mode
         magit
 				nix-mode
 				org-bullets
@@ -173,6 +181,7 @@ let
 				timeleftpc = "ssh 192.168.1.103 \"echo $(($(cat /opt/limit/ticksLeft) * $(cat /opt/limit/tickLengthSecs) / 60))\"";
 				timeleftdell = "ssh 192.168.1.182 \"echo $(($(cat /opt/limit/ticksLeft) * $(cat /opt/limit/tickLengthSecs) / 60))\"";
 				nixvim = "nvim ~/.config/home-manager/users/$USER/modules/nixvim.nix";
+				steam = "rlwrap steamcmd";
 			};
 			initExtra = "fastfetch";
 			#shellInit = "fastfetch";
@@ -188,19 +197,31 @@ let
 		zoxide.enable = true;
 	};
 	services = {
-	    mpd = {
-		enable = true;
-		musicDirectory = "/home/sasha/Music";
-		extraConfig = ''
-			audio_output {
-				type "pipewire"
-				name "Wire of Pipe"
-			}
-			auto_update "yes"
-		'';
-		network.listenAddress = "any";
-   	    };
-	    emacs.enable = true;
+	  mpd = {
+		  enable = true;
+		  musicDirectory = "/home/sasha/Music";
+		  extraConfig = ''
+				audio_output {
+					type "pipewire"
+					name "Wire of Pipe"
+				}
+			  auto_update "yes"
+      '';
+		  network.listenAddress = "any";
+   	};
+	  emacs = {
+      enable = true;
+      # client = {
+      #   enable = true;
+      #   arguments = [
+      #     "-"
+      #   ];
+      # ];
+      extraOptions = [
+        "-l"
+        "~/.config/home-manager/users/$USER/dotfiles/emacs/init.el"
+      ];
+    };
 	};
 	stylix = {
 		enable = true;
