@@ -2,6 +2,8 @@
 
 let
 	packages = with pkgs; [
+		blender
+		cura-appimage
 		rlwrap
 		steamcmd
 		xwayland-satellite
