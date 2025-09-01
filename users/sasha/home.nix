@@ -2,6 +2,16 @@
 
 let
 	packages = with pkgs; [
+		#openssl
+    dune3d
+		cura-appimage
+		blender
+		picocom
+		itd
+		mpv
+		python3
+		man-pages
+		gnome-boxes
 		rlwrap
 		steamcmd
 		xwayland-satellite
@@ -26,7 +36,7 @@ let
 		alacritty		
 		prismlauncher
 		steam
-		steam-run
+		#steam-run
 		fastfetch
 		#cargo
 		#rustup
@@ -41,7 +51,7 @@ let
 		zip
 		unzip
 		eog
-		#gcc
+		gcc
 		#autoPatchelfHook	
 		gnome-terminal
 		postman
@@ -68,10 +78,10 @@ let
 		emacs = {
 			enable = true;
 			extraPackages = epkgs: with epkgs; [
-        zeal-at-point
-        caddyfile-mode
-        yaml-mode
-        magit
+				# zeal-at-point
+				caddyfile-mode
+				yaml-mode
+				magit
 				nix-mode
 				org-bullets
 				evil
@@ -83,82 +93,7 @@ let
 				rust-mode
 				ivy
 			];
-			extraConfig = builtins.readFile ./dotfiles/emacs/init.el; # ''
-			# 	;; (unless (file-exists-p "~/.emacs")
- 			# 	;;   (create-empty-file "~/.emacs"))
-      #   ;;(add-to-list 'default-frame-alist
-			# 	;;    '(font . "dejavu sans mono-15"))
-      #   ;; (set-frame-font "-ukwn-iosevka-regular-normal-expanded-*-13-*-*-*-d-0-iso10646-11")
-      #   (set-face-attribute 'default nil :family "iosevka")
-      #   (menu-bar-mode 0)
-      #   (tool-bar-mode 0)
-      #   (scroll-bar-mode 0)
-      #   (ido-mode 1)
-      #   (ivy-mode 1)
-      #   (setq display-line-numbers 'relative)
-      #   (setq inhibit-startup-message 1)
-      #   (require 'nix-mode)
-      #   ;; (require 'org-mode)
-	
-      #   (global-set-key (kbd "c-s-c c-s-c") 'mc/edit-lines)
-      #   (global-set-key (kbd "c->") 'mc/mark-next-like-this)
-      #   (global-set-key (kbd "c-<") 'mc/mark-previous-like-this)
-      #   (global-set-key (kbd "c-c c-<") 'mc/mark-all-like-this)
-      #   (require 'multiple-cursors)
-      #   ;; (evil-mode 1)
-      #   (defun org-setup () "configure org mode"
-      #          (setq org-hide-emphasis-markers t)
-      #          (setq org-ellipsis " ⏷")
-      #          (setq visual-line-mode 1)
-      #          (setq auto-fill-mode 1)
-      #          (font-lock-mode 1)				
-			# 	       (multiple-cursors-mode 1)
-      #          (org-bullets-mode 1)
-      #          (prettify-symbols-mode 1)
-      #          (font-lock-add-keywords 'org-mode
-			# 				 		'(("^ *\\([-]\\) "
-			# 						(0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
-			# 						(custom-theme-set-faces
-			# 							'user
-			# 	        		'(variable-pitch ((t (:family "etbembo" :height 180 :weight thin))))
-			# 	        		'(fixed-pitch ((t ( :family "fira code retina" :height 160)))))
-			# 	       	        (dolist (face '(
-			# 		      					(org-level-1 . 1.2)
-			# 		      					(org-level-2 . 1.1)
-			# 		      					(org-level-3 . 1.05)
-			# 		      					(org-level-4 . 1.0)
-			# 		      					(org-level-5 . 0.95)
-			# 		      					(org-level-6 . 0.9)
-			# 		      					(org-level-7 . 0.85)
-			# 		      					(org-level-8 . 0.8)))
-			# 									(set-face-attribute (car face) nil :family "iawriter sans duospace" :weight 'bold :height (cdr face)))
-			# 									(set-face-attribute 'org-block nil :foreground nil :height 1.0 :inherit 'fixed-pitch)
-			# 									(set-face-attribute 'org-code nil :inherit '(shadow fixed-pitch))
-			# 									;; (set-face-attribute 'org-indent nil :inherit '(org-hide fixed-pitch))
-			# 									(set-face-attribute 'org-verbatim nil :inherit '(shadow fixed-pitch))
-			# 									(set-face-attribute 'org-special-keyword nil :inherit '(font-lock-comment-face fixed-pitch))
-			# 									(set-face-attribute 'org-meta-line nil :inherit '(font-lock-comment-face fixed-pitch))
-			# 									(set-face-attribute 'org-checkbox nil :height 1.0 :inherit 'fixed-pitch)
-			# 									(put 'downcase-region 'disabled nil)
-			# 									(add-hook 'org-mode-hook (lambda ()
-			# 										  "beautify org checkbox symbol"
-			# 											  (setq prettify-symbols-alist
-			# 												  	(prettify-utils-generate
-			# 																("[ ]" "☐")
-			# 																("[x]" "☑")
-			# 																("[-]" "❍")))
-			# 																(prettify-symbols-mode)))
-
-               
-      #   )
-			# 	(require 'key-chord)
-			# 	(add-hook 'org-mode-hook 'org-setup)
-			# 	(key-chord-define-global "fg" "c-s")
-			# 	;; (use-package 'org-bullets
-			# 	;;   :config
-			# 	;;   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
-								
-			# '';
+			extraConfig = builtins.readFile ./dotfiles/emacs/init.el;
 		};
 		bash = {
 			enable = true;
@@ -178,12 +113,12 @@ let
 				nixos = "cd /etc/nixos";
 				c = "z";
 				dev = "nix develop";
-				timeleftpc = "ssh 192.168.1.103 \"echo $(($(cat /opt/limit/ticksLeft) * $(cat /opt/limit/tickLengthSecs) / 60))\"";
-				timeleftdell = "ssh 192.168.1.182 \"echo $(($(cat /opt/limit/ticksLeft) * $(cat /opt/limit/tickLengthSecs) / 60))\"";
+				#				timeleftpc = "ssh 192.168.1.103 \"echo $(($(cat /opt/limit/ticks_left) * $(cat /opt/limit/tick_length_secs) / 60))\"";
+				#timeleftdell = "ssh 192.168.1.182 \"echo $(($(cat /opt/limit/ticks_left) * $(cat /opt/limit/tick_length_secs) / 60))\"";
 				nixvim = "nvim ~/.config/home-manager/users/$USER/modules/nixvim.nix";
-				steam = "rlwrap steamcmd";
+				#steam = "rlwrap steamcmd";
 			};
-			initExtra = "fastfetch";
+			initExtra = "systemctl --user set-environment DISPLAY=:0; fastfetch";
 			#shellInit = "fastfetch";
 			#interactiveShellInit = "fastfetch";
 		};
@@ -192,6 +127,9 @@ let
 			enable = true;
 			userEmail = "stabasov@gmail.com"; 
 			userName = "Hlebotron";
+      extraConfig = {
+        init.defaultBranch = "main";
+      };
 		};
 		nixvim.enable = true;
 		zoxide.enable = true;

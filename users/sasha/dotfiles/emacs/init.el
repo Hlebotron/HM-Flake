@@ -3,14 +3,7 @@
 ;;(add-to-list 'default-frame-alist
 ;;    '(font . "dejavu sans mono-15"))
 ;; (set-frame-font "-ukwn-iosevka-regular-normal-expanded-*-13-*-*-*-d-0-iso10646-11")
-(set-face-attribute 'default nil :family "iosevka")
-(menu-bar-mode 0)
-(tool-bar-mode 0)
-(scroll-bar-mode 0)
-(ido-mode 1)
-(multiple-cursors-mode 1)
-(ivy-mode 1)
-(auto-revert-mode 1)
+
 ;; (use-package lsp-mode
 ;;   :commands (lsp lsp-deferred)
 ;;   :init
@@ -24,22 +17,41 @@
 ;; (use-package lsp-ui
 ;;   :commands lsp-ui-mode) 
 
-(setq global-display-line-numbers 'relative
+(use-package nix-mode)
+(use-package multiple-cursors)
+(use-package key-chord)
+(use-package magit)
+(use-package typst-ts-mode)
+(use-package org)
+(use-package undo-tree)
+(use-package pdf-tools)
+
+(set-face-attribute 'default nil :family "iosevka")
+(menu-bar-mode 0)
+(tool-bar-mode 0)
+(scroll-bar-mode 0)
+(ido-mode 1)
+(multiple-cursors-mode 1)
+(ivy-mode 1)
+(auto-revert-mode 1)
+(global-display-line-numbers-mode 1)
+(global-undo-tree-mode 1)
+(setq display-line-numbers 'relative
       inhibit-startup-message 1)
-(require 'nix-mode)
-(require 'multiple-cursors)
-(require 'key-chord)
-(require 'magit)
-;; (require 'org-mode)
 
 ;; (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
-(global-set-key (kbd "C->") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-.") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-,") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C->") 'mc/skip-to-next-like-this)
+(global-set-key (kbd "C-<") 'mc/skip-to-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+(global-set-key (kbd "C-c C-r") 'recompile)
+
+(add-hook 'compilation-filter-hook 'ansi-color-compilation-filter)
 
 ;; (evil-mode 1)
 (defun org-setup () "configure org mode"
-       (setq org-hide-emphasis-markers t)
+       (setq org-hide-emphasis-markers t
        	     org-ellipsis " ⏷"
 	     visual-line-mode 0
 	     auto-fill-mode 1)
@@ -79,7 +91,7 @@
 					 ("[x]" "☑")
 					 ("[-]" "❍")))
 				  (prettify-symbols-mode)))
-
+       )
        
 
 
