@@ -135,9 +135,6 @@ let
 		zoxide.enable = true;
 	};
 	services = {
-    xserver = {
-      desktopManager.gnome.enable = true;
-    };
 	  mpd = {
 		  enable = true;
 		  musicDirectory = "/home/sasha/Music";
