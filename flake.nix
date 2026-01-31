@@ -3,28 +3,28 @@
 
   inputs = {
     # Specify the source of Home Manager and Nixpkgs.
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    determinate.url = "https://flakehub.com/f/DeterminateSystems/nixpkgs-weekly/0.1.930106";
+    nixpkgs.url = "github:nixos/nixpkgs/release-25.11";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "determinate";
+      url = "github:nix-community/home-manager/release-25.11";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     nixgl.url = "github:nix-community/nixgl";
     stylix = {
-      url = "github:nix-community/stylix";
-      inputs.nixpkgs.follows = "determinate";
+      url = "github:nix-community/stylix/release-25.11";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
   outputs =
-    { home-manager, nixpkgs, determinate, nixgl, stylix, ... }:
+    { home-manager, nixpkgs, nixpkgs-unstable, nixgl, stylix, ... }:
     let
       system = "x86_64-linux";
-      pkgs = import determinate {
+      pkgs = import nixpkgs {
         inherit system;
 	      overlays = [ nixgl.overlay ];
       };
-      pkgs-unstable = import nixpkgs {
+      pkgs-unstable = import nixpkgs-unstable {
         inherit system;
         overlays = [ nixgl.overlay ];
       };
