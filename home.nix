@@ -58,6 +58,8 @@ in {
     libreoffice
     iosevka
     (nixGLWrap drawio)
+    (nixGLWrap blender)
+    (nixGLWrap openscad)
     # wine
   ];
   #++ map (pkg: nixGLWrap pkg) with pkgs; [
