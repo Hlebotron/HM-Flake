@@ -45,7 +45,7 @@ in {
     # protonup-rs
     (nixGLWrap gamescope)
     (nixGLWrap nyxt)
-    iosevka
+    # iosevka
     winetricks
     mpc
     screen
@@ -56,7 +56,7 @@ in {
     (nixGLWrap evince)
     fastfetch
     libreoffice
-    iosevka
+    # iosevka
     (nixGLWrap drawio)
     (nixGLWrap blender)
     (nixGLWrap openscad)
