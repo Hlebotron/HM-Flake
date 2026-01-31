@@ -17,27 +17,34 @@
   };
 
   outputs =
-    { home-manager, determinate, nixgl, stylix, ... }:
+    { home-manager, nixpkgs, determinate, nixgl, stylix, ... }:
     let
       system = "x86_64-linux";
       pkgs = import determinate {
         inherit system;
-	overlays = [ nixgl.overlay ];
+	      overlays = [ nixgl.overlay ];
+      };
+      pkgs-unstable = import nixpkgs {
+        inherit system;
+        overlays = [ nixgl.overlay ];
       };
     in
-    {
-      homeConfigurations."sasha" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
+      {
+        homeConfigurations."sasha" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
 
-        # Specify your home configuration modules here, for example,
-        # the path to your home.nix.
-        modules = [
-	  ./home.nix
-	  stylix.homeModules.stylix
-	];
+          # Specify your home configuration modules here, for example,
+          # the path to your home.nix.
+          modules = [
+	          ./home.nix
+	          stylix.homeModules.stylix
+	        ];
 
-        # Optionally use extraSpecialArgs
-        # to pass through arguments to home.nix
+          # Optionally use extraSpecialArgs
+          # to pass through arguments to home.nix
+          extraSpecialArgs = {
+            inherit pkgs-unstable;
+          };
+        };
       };
-    };
 }

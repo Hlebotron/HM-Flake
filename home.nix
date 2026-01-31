@@ -1,4 +1,4 @@
-{ config, pkgs, lib, stylix, ... }:
+{ config, pkgs, pkgs-unstable, lib, stylix, ... }:
 
 let
 nixGLWrap = pkg: pkgs.runCommand "${pkg.name}-nixgl-wrapper" {} ''
@@ -17,7 +17,7 @@ in {
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = with pkgs; [
+  home.packages = with pkgs; ([
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -59,9 +59,11 @@ in {
     # iosevka
     (nixGLWrap drawio)
     (nixGLWrap blender)
-    (nixGLWrap openscad)
+
     # wine
-  ];
+  ]) ++ (with pkgs-unstable; [
+    (nixGLWrap openscad)    
+  ]);
   #++ map (pkg: nixGLWrap pkg) with pkgs; [
   #  orca-slicer
   #  mpv
