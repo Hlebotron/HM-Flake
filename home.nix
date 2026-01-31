@@ -42,7 +42,7 @@ in {
     # wine64
     wine64Packages.fonts
     protontricks
-    protonup-rs
+    # protonup-rs
     (nixGLWrap gamescope)
     (nixGLWrap nyxt)
     iosevka
@@ -51,6 +51,13 @@ in {
     screen
     platformio
     wineWowPackages.stable
+    clisp
+    emacs-gtk
+    (nixGLWrap evince)
+    fastfetch
+    libreoffice
+    iosevka
+    (nixGLWrap drawio)
     # wine
   ];
   #++ map (pkg: nixGLWrap pkg) with pkgs; [
@@ -61,11 +68,16 @@ in {
   
 
   programs = {
-    
     # Let Home Manager install and manage itself.
     home-manager.enable = true;
     git = {
-      enable = true;  
+      enable = true;
+      settings = {
+        user = {
+          email = "stabasov@gmail.com";
+          name = "Hlebotron";
+        };
+      };
     };
     # steam.enable = true;
     man = {
@@ -84,6 +96,8 @@ in {
   };
   
   stylix = {
+    enable = true;
+    autoEnable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-city-dark.yaml";
   };
 
@@ -119,7 +133,7 @@ in {
   #  /etc/profiles/per-user/sasha/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    EDITOR = "emacs";
   };
   nixpkgs.config.allowUnfree = true;
 
