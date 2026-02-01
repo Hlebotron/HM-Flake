@@ -1,18 +1,6 @@
 { config, pkgs, pkgs-unstable, lib, stylix, ... }:
 
-let
-nixGLWrap = pkg: pkgs.runCommand "${pkg.name}-nixgl-wrapper" {} ''
-    mkdir $out
-    ln -s ${pkg}/* $out
-    rm $out/bin
-    mkdir $out/bin
-    for bin in ${pkg}/bin/*; do
-     wrapped_bin=$out/bin/$(basename $bin)
-     echo "exec ${lib.getExe pkgs.nixgl.nixGLIntel} $bin \$@" > $wrapped_bin
-     chmod +x $wrapped_bin
-    done
-  '';
-in {
+{
 
 
   # The home.packages option allows you to install Nix packages into your
@@ -36,15 +24,15 @@ in {
     # '')
     nixgl.nixGLIntel
     yt-dlp
-    (nixGLWrap orca-slicer)
-    (nixGLWrap mpv)
-    (nixGLWrap steam)
+    orca-slicer
+    mpv
+    steam
     # wine64
     wine64Packages.fonts
     protontricks
     # protonup-rs
-    (nixGLWrap gamescope)
-    (nixGLWrap nyxt)
+    gamescope
+    nyxt
     # iosevka
     winetricks
     mpc
@@ -53,21 +41,21 @@ in {
     wineWowPackages.stable
     clisp
     emacs-gtk
-    (nixGLWrap evince)
+    evince
     fastfetch
     libreoffice
     # iosevka
-    (nixGLWrap drawio)
-    (nixGLWrap blender)
+    drawio
+    blender
 
     # wine
   ]) ++ (with pkgs-unstable; [
-    (nixGLWrap openscad)    
+    openscad   
   ]);
   #++ map (pkg: nixGLWrap pkg) with pkgs; [
   #  orca-slicer
   #  mpv
-  #  # (nixGLWrap )
+  #  # 
   #];
   
 
@@ -103,6 +91,14 @@ in {
     enable = true;
     autoEnable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-city-dark.yaml";
+  };
+
+  targets.genericLinux = {
+    gpu.enable = true;
+    nixGL = {
+      installScripts = [ "mesa" "mesaPrime" ];
+      vulkan.enable = true;
+    };
   };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
