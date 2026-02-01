@@ -86,7 +86,7 @@ in {
     # steam.enable = true;
     man = {
       enable = true;
-      generateCaches = false;
+      generateCaches = true;
     };
   };
 
