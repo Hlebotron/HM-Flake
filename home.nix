@@ -38,7 +38,7 @@
     mpc
     screen
     platformio
-    wineWowPackages.stable
+    wineWow64Packages.waylandFull
     clisp
     emacs-gtk
     evince
