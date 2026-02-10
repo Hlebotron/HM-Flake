@@ -22,6 +22,7 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+    zeal
     nixgl.nixGLIntel
     yt-dlp
     orca-slicer
