@@ -48,7 +48,7 @@
     # iosevka
     drawio
     blender
-
+    eog
     # wine
   ]) ++ (with pkgs-unstable; [
     openscad   
