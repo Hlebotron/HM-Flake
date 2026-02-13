@@ -49,6 +49,7 @@
     drawio
     blender
     eog
+    kdePackages.kdenlive
     # wine
   ]) ++ (with pkgs-unstable; [
     openscad   
