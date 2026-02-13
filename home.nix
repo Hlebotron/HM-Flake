@@ -50,6 +50,7 @@
     blender
     eog
     kdePackages.kdenlive
+    audacity
     # wine
   ]) ++ (with pkgs-unstable; [
     openscad   
