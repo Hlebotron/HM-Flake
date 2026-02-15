@@ -51,6 +51,7 @@
     eog
     kdePackages.kdenlive
     audacity
+    libheif
     # wine
   ]) ++ (with pkgs-unstable; [
     openscad   
