@@ -32,7 +32,7 @@
     wine64Packages.fonts
     protontricks
     # protonup-rs
-    gamescope
+    # gamescope
     nyxt
     # iosevka
     winetricks
