@@ -52,6 +52,7 @@
     kdePackages.kdenlive
     audacity
     libheif
+    kicad
     # wine
   ]) ++ (with pkgs-unstable; [
     openscad   
