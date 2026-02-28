@@ -53,6 +53,7 @@
     audacity
     libheif
     kicad
+    picocom
     # wine
   ]) ++ (with pkgs-unstable; [
     openscad   
