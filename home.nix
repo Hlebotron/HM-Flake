@@ -55,9 +55,10 @@
     kicad
     picocom
     claude-code
+    openscad   
     # wine
   ]) ++ (with pkgs-unstable; [
-    openscad   
+
   ]);
   #++ map (pkg: nixGLWrap pkg) with pkgs; [
   #  orca-slicer
