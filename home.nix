@@ -54,6 +54,7 @@
     libheif
     kicad
     picocom
+    claude-code
     # wine
   ]) ++ (with pkgs-unstable; [
     openscad   
