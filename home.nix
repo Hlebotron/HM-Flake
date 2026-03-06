@@ -55,7 +55,8 @@
     kicad
     picocom
     claude-code
-    openscad   
+    openscad
+    gdb
     # wine
   ]) ++ (with pkgs-unstable; [
 
