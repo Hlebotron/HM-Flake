@@ -57,6 +57,7 @@
     claude-code
     openscad
     gdb
+    htmldoc
     # wine
   ]) ++ (with pkgs-unstable; [
 
