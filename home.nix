@@ -58,6 +58,7 @@
     openscad
     gdb
     htmldoc
+    pandoc
     # wine
   ]) ++ (with pkgs-unstable; [
 
