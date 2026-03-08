@@ -59,6 +59,7 @@
     gdb
     htmldoc
     pandoc
+    texliveSmall
     # wine
   ]) ++ (with pkgs-unstable; [
 
