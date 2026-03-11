@@ -60,6 +60,7 @@
     htmldoc
     pandoc
     texliveSmall
+    geogebra
     # wine
   ]) ++ (with pkgs-unstable; [
 
