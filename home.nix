@@ -61,6 +61,7 @@
     pandoc
     texliveSmall
     geogebra
+    nix-index
     # wine
   ]) ++ (with pkgs-unstable; [
 
