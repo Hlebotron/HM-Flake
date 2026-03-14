@@ -62,6 +62,7 @@
     texliveSmall
     geogebra
     nix-index
+    gtypist
     # wine
   ]) ++ (with pkgs-unstable; [
 
