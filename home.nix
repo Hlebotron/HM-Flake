@@ -101,6 +101,7 @@
       musicDirectory = /home/sasha/Music;
       network.listenAddress = "/home/sasha/.mpd/socket";
     };
+    mako.enable = true;
   };
   
   stylix = {
