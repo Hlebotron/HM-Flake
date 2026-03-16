@@ -63,6 +63,7 @@
     geogebra
     nix-index
     gtypist
+    itd
     # wine
   ]) ++ (with pkgs-unstable; [
 
