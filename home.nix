@@ -64,6 +64,7 @@
     nix-index
     gtypist
     itd
+    watchmate
     # wine
   ]) ++ (with pkgs-unstable; [
 
