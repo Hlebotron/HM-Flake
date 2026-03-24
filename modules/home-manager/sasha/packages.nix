@@ -19,54 +19,14 @@
       # (pkgs.writeShellScriptBin "my-hello" ''
       #   echo "Hello, ${config.home.username}!"
       # '')
-      zeal
-      nixgl.nixGLIntel
-      yt-dlp
-      orca-slicer
-      mpv
-      steam
-      # wine64
-      wine64Packages.fonts
-      protontricks
       # protonup-rs
       # gamescope
-      nyxt
       # iosevka
-      winetricks
-      mpc
-      screen
-      platformio
-      wineWow64Packages.waylandFull
-      clisp
-      emacs-gtk
-      evince
-      fastfetch
-      libreoffice
       # iosevka
-      drawio
-      blender
-      eog
-      kdePackages.kdenlive
-      audacity
-      libheif
-      kicad
-      picocom
-      claude-code
-      openscad
-      gdb
-      htmldoc
-      pandoc
-      texliveSmall
-      geogebra
-      nix-index
-      gtypist
-      itd
-      watchmate
+
+
       # gst_all_1.gstreamer
-      libopus
-      libvorbis
-      openh264
-      # wine
+
     ]) ++ (with pkgs-unstable; [
 
     ]);
