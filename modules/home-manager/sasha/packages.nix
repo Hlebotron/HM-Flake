@@ -1,7 +1,7 @@
 { self, inputs, ...}:
 
 {
-  flake.homeModules.packages = { pkgs, ... }: {
+  flake.modules.homeManager.packages = { pkgs, ... }: {
     home.packages = with pkgs; ([
       # # Adds the 'hello' command to your environment. It prints a friendly
       # # "Hello, world!" when run.
@@ -62,7 +62,10 @@
       gtypist
       itd
       watchmate
-      gst_all_1.gstreamer
+      # gst_all_1.gstreamer
+      libopus
+      libvorbis
+      openh264
       # wine
     ]) ++ (with pkgs-unstable; [
 

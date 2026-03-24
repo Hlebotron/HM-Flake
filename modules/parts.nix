@@ -1,3 +1,5 @@
+{ inputs, ... }:
+
 {
   config = {
     systems = [
@@ -7,4 +9,8 @@
       "aarch64-darwin"
     ];
   };
+  imports = [
+    inputs.flake-parts.flakeModules.modules
+    inputs.home-manager.flakeModules.home-manager
+  ];
 }

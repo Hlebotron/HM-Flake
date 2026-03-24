@@ -8,8 +8,10 @@
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    
     flake-parts.url = "github:hercules-ci/flake-parts";
     import-tree.url = "github:vic/import-tree";
+    flake-file.url = "github:vic/flake-file";
     
     nixgl.url = "github:nix-community/nixgl";
     stylix = {

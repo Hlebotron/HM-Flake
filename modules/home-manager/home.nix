@@ -10,9 +10,10 @@
       (with inputs; [
         stylix.homeModules.stylix
       ]) ++
-      (with self.homeModules; [
+      (with self.modules.homeManager; [
         sasha
         packages
+        programs-services
       ]);
   };
 }

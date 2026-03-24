@@ -1,7 +1,7 @@
 { self, inputs, ... }:
 
 {
-  flake.homeModules.sasha = { pkgs, stylix, ... }: {
+  flake.modules.homeManager.sasha = { pkgs, stylix, ... }: {
 
     # The home.packages option allows you to install Nix packages into your
     # environment.
@@ -11,36 +11,6 @@
     #  mpv
     #  # 
     #];
-    
-
-    programs = {
-      # Let Home Manager install and manage itself.
-      home-manager.enable = true;
-      git = {
-        enable = true;
-        settings = {
-          user = {
-            email = "stabasov@gmail.com";
-            name = "Hlebotron";
-          };
-        };
-      };
-      # steam.enable = true;
-      man = {
-        enable = true;
-        generateCaches = true;
-      };
-    };
-
-    services = {
-      mpd = {
-        enable = true;
-        dataDir = /home/sasha/.mpd;
-        musicDirectory = /home/sasha/Music;
-        network.listenAddress = "/home/sasha/.mpd/socket";
-      };
-      mako.enable = true;
-    };
     
     stylix = {
       enable = true;
@@ -107,4 +77,4 @@
     home.stateVersion = "25.11"; # Please read the comment before changing.
 
   };
-};
+}
