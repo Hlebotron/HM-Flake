@@ -1,30 +1,25 @@
 { self, inputs, ... }:
 
 {
-  flake.modules.homeManager.sasha = { pkgs, stylix, ... }: {
-
-    # The home.packages option allows you to install Nix packages into your
-    # environment.
-
-    #++ map (pkg: nixGLWrap pkg) with pkgs; [
-    #  orca-slicer
-    #  mpv
-    #  # 
-    #];
-    
-    stylix = {
-      enable = true;
-      autoEnable = true;
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-city-dark.yaml";
-    };
-
-    targets.genericLinux = {
-      gpu.enable = true;
-      nixGL = {
-        installScripts = [ "mesa" "mesaPrime" ];
-        vulkan.enable = true;
-      };
-    };
+  flake.modules.homeManager.sasha = { pkgs, ... }: {
+    imports =
+      (with self.modules.homeManager; [
+        programs-services
+        nixgl-intel
+        three-d
+        games
+        programming
+        office
+        pinetime
+        editing
+        codecs
+        nix
+        misc
+        niri
+      ]) ++
+      (with self.modules.generic; [
+        stylix
+      ]);
 
     # Home Manager is pretty good at managing dotfiles. The primary way to manage
     # plain files is through 'home.file'.
@@ -65,7 +60,7 @@
     # Home Manager needs a bit of information about you and the paths it should
     # manage.
     home.username = "sasha";
-    home.homeDirectory = "/var/home/sasha";
+    home.homeDirectory = "/home/sasha";
 
     # This value determines the Home Manager release that your configuration is
     # compatible with. This helps avoid breakage when a new Home Manager release

@@ -49,6 +49,7 @@
         qutebrowser
         texliveSmall
         geogebra
+        evince
       ];
     };
     pinetime = { pkgs, ... }: {
@@ -57,7 +58,7 @@
         watchmate
       ];
     };
-    video-editing = { pkgs, ... }: {
+    editing = { pkgs, ... }: {
       home.packages = with pkgs; [
         kdePackages.kdenlive
         audacity

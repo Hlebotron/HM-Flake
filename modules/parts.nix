@@ -9,8 +9,8 @@
       "aarch64-darwin"
     ];
   };
-  imports = [
-    inputs.flake-parts.flakeModules.modules
-    inputs.home-manager.flakeModules.home-manager
+  imports = with inputs; [
+    flake-parts.flakeModules.modules
+    home-manager.flakeModules.home-manager
   ];
 }
