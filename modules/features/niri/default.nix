@@ -6,20 +6,26 @@
       inherit pkgs;
       imports = with self; [
         wrapperModules.niri
+        # packages.noctalia
         modules.generic.niri-binds
       ];
     };
   };
   
-  flake.wrapperModules.niri = { pkgs, lib, ... }: {
+  flake.wrapperModules.niri = { pkgs, lib, ... }:
+    # noctaliaExe = lib.getExe self.packages.${config.pkgs.stdenv.hostPlatform.system}.noctalia-shell;
+  {
     settings = {
-      spawn-at-startup = (map lib.getExe [
-        # pkgs.writeShellScriptBin "env" "systemctl --user set-environment DISPLAY=:0";
-        # pkgs.writeShellScriptBin "xdg" "systemctl --user restart xdg-desktop-portal-gtk";
-        # # pkgs.writeShellScriptBin "waybar" "waybar";
-        # pkgs.writeShellScriptBin "xwayland-satellite" "xwayland-satellite";
-        # pkgs.writeShellScriptBin "polkit" "polkit";
-      ]);
+      spawn-at-startup = [
+        # noctaliaExe
+      ];
+      #   (map lib.getExe [
+      #   # pkgs.writeShellScriptBin "env" "systemctl --user set-environment DISPLAY=:0";
+      #   # pkgs.writeShellScriptBin "xdg" "systemctl --user restart xdg-desktop-portal-gtk";
+      #   # # pkgs.writeShellScriptBin "waybar" "waybar";
+      #   # pkgs.writeShellScriptBin "xwayland-satellite" "xwayland-satellite";
+      #   # pkgs.writeShellScriptBin "polkit" "polkit";
+      # ]);
       # spawn-at-startup "pipewire"
 
 

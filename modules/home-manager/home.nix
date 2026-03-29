@@ -7,7 +7,6 @@
         system = "x86_64-linux";
         overlays = with inputs; [
           nixgl.overlay
-          niri.overlays.niri
         ];
       };
       modules = [

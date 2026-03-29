@@ -15,11 +15,11 @@
         codecs
         nix
         misc
-        niri
       ]) ++
-      (with self.modules.generic; [
-        stylix
-      ]);
+      [
+        self.modules.generic.stylix
+        # inputs.noctalia.homeModules.default
+      ];
 
     # Home Manager is pretty good at managing dotfiles. The primary way to manage
     # plain files is through 'home.file'.
@@ -35,6 +35,11 @@
       #   org.gradle.daemon.idletimeout=3600000
       # '';
     };
+
+    home.packages = [
+      self.packages."${pkgs.hostPlatform.system}".noctalia-shell
+      self.packages."${pkgs.hostPlatform.system}".niri
+    ];
 
     # Home Manager can also manage your environment variables through
     # 'home.sessionVariables'. These will be explicitly sourced when using a

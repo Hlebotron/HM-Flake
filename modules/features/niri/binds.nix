@@ -3,7 +3,7 @@
 {
   flake.modules.generic.niri-binds = { pkgs, lib, ... }: {
     settings.binds = {
-      "Mod+C".spawn-sh = "alacritty";
+      "Mod+Return".spawn-sh = "alacritty";
       # Keys consist of modifiers separated by + signs, followed by an XKB key name
       # in the end. To find an XKB name for a particular key, you may use a program
       # like wev.
