@@ -16,14 +16,18 @@
     # noctaliaExe = lib.getExe self.packages.${config.pkgs.stdenv.hostPlatform.system}.noctalia-shell;
   {
     settings = {
-      spawn-at-startup = [
+      spawn-at-startup = (map lib.getExe [
+        (pkgs.writeShellScriptBin "xwayland-satellite" ''${pkgs.xwayland-satellite}/bin/xwayland-satellite'')
+        # (pkgs.writeShellScriptBin "waybar" ''${pkgs.waybar}/bin/waybar'')
+        (pkgs.writeShellScriptBin "systemctl" ''systemctl --user set-environment DISPLAY=:0 && systemctl --user start xdg-desktop-portal-gtk'')
+        (pkgs.writeShellScriptBin "noctalia-start" ''${self.packages."${pkgs.stdenv.hostPlatform.system}".noctalia-shell}/bin/noctalia-shell'')
         # noctaliaExe
-      ];
+      ]);
       #   (map lib.getExe [
       #   # pkgs.writeShellScriptBin "env" "systemctl --user set-environment DISPLAY=:0";
       #   # pkgs.writeShellScriptBin "xdg" "systemctl --user restart xdg-desktop-portal-gtk";
       #   # # pkgs.writeShellScriptBin "waybar" "waybar";
-      #   # pkgs.writeShellScriptBin "xwayland-satellite" "xwayland-satellite";
+      #   # pkgs.writeShellScriptBin "xwayland-satellite" "xwayland-satellite";w
       #   # pkgs.writeShellScriptBin "polkit" "polkit";
       # ]);
       # spawn-at-startup "pipewire"
