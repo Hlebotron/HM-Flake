@@ -17,10 +17,11 @@
   {
     settings = {
       spawn-at-startup = (map lib.getExe [
-        (pkgs.writeShellScriptBin "xwayland-satellite" ''${pkgs.xwayland-satellite}/bin/xwayland-satellite'')
+        (pkgs.writeShellScriptBin "xwayland-satellite-start" ''${pkgs.xwayland-satellite}/bin/xwayland-satellite'')
         # (pkgs.writeShellScriptBin "waybar" ''${pkgs.waybar}/bin/waybar'')
-        (pkgs.writeShellScriptBin "systemctl" ''systemctl --user set-environment DISPLAY=:0 && systemctl --user start xdg-desktop-portal-gtk'')
+        (pkgs.writeShellScriptBin "systemctl-start" ''systemctl --user set-environment DISPLAY=:0 && systemctl --user start xdg-desktop-portal-gtk'')
         (pkgs.writeShellScriptBin "noctalia-start" ''${self.packages."${pkgs.stdenv.hostPlatform.system}".noctalia-shell}/bin/noctalia-shell'')
+        (pkgs.writeShellScriptBin "emacs-daemon-start" ''${pkgs.emacs-gtk}/bin/emacs --daemon'')
         # noctaliaExe
       ]);
       #   (map lib.getExe [
@@ -36,7 +37,7 @@
 
       # spawn-at-startup "mpd"
 
-      prefer-no-csd = null;
+      prefer-no-csd = _: {};
 
       environment = {
         # WAYLAND_DISPLAY "wayland-1"
@@ -49,16 +50,16 @@
             layout = "us,hu";
             options = "ctrl:nocaps,grp:alts_toggle"; #"caps:escape" # "grp:win_space_toggle,compose:ralt,ctrl:nocaps";
           };
-          numlock = null;
+          numlock = _: {};
         };
         touchpad = {
           # off
-          tap = null;
+          tap = _: {};
           # dwt
           # dwtp
           # drag false
           # drag-lock
-          natural-scroll = null;
+          natural-scroll = _: {};
           # accel-speed 0.2
           # accel-profile "flat"
           # scroll-method "two-finger"
@@ -100,7 +101,7 @@
       #     mode = "3440x1440@100";
       #     scale = 1.0;
       #     background-color = "#000000";
-      #     variable-refresh-rate = null;
+      #     variable-refresh-rate = _: {};
       #   };
       #   "eDP-1" = {
       #     position = {
@@ -109,7 +110,7 @@
       #     };
       #     scale = 1.0;
       #     background-color = "#000000";
-      #     variable-refresh-rate = null;
+      #     variable-refresh-rate = _: {};
       #   };
       #   "DP-1" = {
       #     position = {
@@ -119,7 +120,7 @@
       #     mode = "3440x1440@100";
       #     scale = 1.0;
       #     background-color = "#000000";
-      #     variable-refresh-rate = null;
+      #     variable-refresh-rate = _: {};
       #   };
       # };
 
@@ -246,7 +247,7 @@
         border = {
           # The settings are the same as for the focus ring.
           # If you enable the border, you probably want to disable the focus ring.
-          off = null;
+          off = _: {};
 
           width = 4;
           active-color = "#ffc87f";
@@ -330,8 +331,8 @@
       # The path is formatted with strftime(3) to give you the screenshot date and time.
       screenshot-path = "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png";
 
-      # You can also set this to null to disable saving screenshots to disk.
-      # screenshot-path null
+      # You can also set this to _: {} to disable saving screenshots to disk.
+      # screenshot-path _: {}
 
       # Animation settings.
       # The wiki explains how to configure individual animations:

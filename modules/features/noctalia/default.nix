@@ -10,24 +10,24 @@
       env = {
         "NOCTALIA_CACHE_DIR" = "/tmp/vj-noctalia-cache/";
       };
-      colors = {
-        mError = "#fb4934";
-        mHover = "#83a598";
-        mOnError = "#282828";
-        mOnHover = "#282828";
-        mOnPrimary = "#282828";
-        mOnSecondary = "#282828";
-        mOnSurface = "#fbf1c7";
-        mOnSurfaceVariant = "#ebdbb2";
-        mOnTertiary = "#282828";
-        mOutline = "#57514e";
-        mPrimary = "#b8bb26";
-        mSecondary = "#fabd2f";
-        mShadow = "#282828";
-        mSurface = "#282828";
-        mSurfaceVariant = "#3c3836";
-        mTertiary = "#83a598";
-      };
+      # colors = {
+      #   mError = "#fb4934";
+      #   mHover = "#83a598";
+      #   mOnError = "#282828";
+      #   mOnHover = "#282828";
+      #   mOnPrimary = "#282828";
+      #   mOnSecondary = "#282828";
+      #   mOnSurface = "#fbf1c7";
+      #   mOnSurfaceVariant = "#ebdbb2";
+      #   mOnTertiary = "#282828";
+      #   mOutline = "#57514e";
+      #   mPrimary = "#b8bb26";
+      #   mSecondary = "#fabd2f";
+      #   mShadow = "#282828";
+      #   mSurface = "#282828";
+      #   mSurfaceVariant = "#3c3836";
+      #   mTertiary = "#83a598";
+      # };
       settings = {
         appLauncher = {
           customLaunchPrefix = "";
@@ -77,6 +77,39 @@
                 useDistroLogo = true;
               }
               {
+                colorizeIcons = false;
+                hideMode = "hidden";
+                id = "ActiveWindow";
+                maxWidth = 145;
+                scrollingMode = "hover";
+                showIcon = true;
+                textColor = "none";
+                useFixedWidth = false;
+              }
+              {
+                displayMode = "forceOpen";
+                id = "KeyboardLayout";
+              }
+              {
+                displayMode = "onhover";
+                iconColor = "none";
+                id = "Bluetooth";
+                textColor = "none";
+              }
+              {
+                displayMode = "onhover";
+                iconColor = "none";
+                id = "Network";
+                textColor = "none";
+              }
+              {
+                hideWhenZero = false;
+                id = "NotificationHistory";
+                showUnreadBadge = true;
+              }
+            ];
+            right = [
+              {
                 characterCount = 2;
                 colorizeIcons = false;
                 enableScrollWheel = true;
@@ -87,20 +120,11 @@
                 showApplications = false;
                 showLabelsOnlyWhenOccupied = true;
               }
-            ];
-            right = [
-              {
-                hideWhenZero = false;
-                id = "NotificationHistory";
-                showUnreadBadge = true;
-              }
+
               {
                 id = "PowerProfile";
               }
-              {
-                displayMode = "alwaysHide";
-                id = "Volume";
-              }
+
               {
                 deviceNativePath = "";
                 displayMode = "alwaysShow";
@@ -111,12 +135,12 @@
                 warningThreshold = 20;
               }
               {
-                displayMode = "alwaysHide";
-                id = "Microphone";
+                displayMode = "alwaysShow";
+                id = "Volume";
               }
               {
-                displayMode = "forceOpen";
-                id = "KeyboardLayout";
+                displayMode = "alwaysHide";
+                id = "Microphone";
               }
               {
                 customFont = "";
@@ -162,16 +186,16 @@
             }
           ];
         };
-        # colorSchemes = {
-        #   darkMode = true;
-        #   generateTemplatesForPredefined = true;
-        #   manualSunrise = "06:30";
-        #   manualSunset = "18:30";
-        #   matugenSchemeType = "scheme-fruit-salad";
-        #   predefinedScheme = "Gruvbox";
-        #   schedulingMode = "off";
-        #   useWallpaperColors = false;
-        # };
+        colorSchemes = {
+          darkMode = true;
+          generateTemplatesForPredefined = true;
+          manualSunrise = "06:30";
+          manualSunset = "18:30";
+          matugenSchemeType = "scheme-fruit-salad";
+          predefinedScheme = "Tokyo Night";
+          schedulingMode = "off";
+          useWallpaperColors = false;
+        };
         controlCenter = {
           cards = [
             {
@@ -339,7 +363,7 @@
           audioCodec = "opus";
           audioSource = "default_output";
           colorRange = "limited";
-          directory = "/home/yurii/Videos";
+          directory = "/home/sasha/Videos";
           frameRate = 60;
           quality = "very_high";
           showCursor = true;

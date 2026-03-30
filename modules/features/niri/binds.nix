@@ -17,7 +17,7 @@
       # Mod-Shift-/, which is usually the same as Mod-?,
       # shows a list of important hotkeys.
       
-      "Mod+Shift+Slash".show-hotkey-overlay = null;
+      "Mod+Shift+Slash".show-hotkey-overlay = _: {};
       "Mod+Ctrl+Space" = {
         _attrs = {
           hotkey-overlay-title="Toggle Music Playback";
@@ -183,27 +183,27 @@
       # Open/close the Overview: a zoomed-out view of workspaces and windows.
       # You can also move the mouse into the top-left hot corner,
       # or do a four-finger swipe up on a touchpad.
-      "Mod+O".toggle-overview = null;
+      "Mod+O".toggle-overview = _: {};
 
-      "Mod+Q".close-window = null;
+      "Mod+Q".close-window = _: {};
 
       # "Mod+Left".spawn =  { focus-column-left; };
       # "Mod+Down".spawn = { focus-window-down; };
       # "Mod+Up".spawn =    { focus-window-up; };
       # "Mod+Right".spawn = { focus-column-right; };
-      "Mod+H".focus-column-left = null;
-      "Mod+J".focus-window-or-workspace-down = null;
-      "Mod+K".focus-window-or-workspace-up = null;
-      "Mod+L".focus-column-right = null;
+      "Mod+H".focus-column-left = _: {};
+      "Mod+J".focus-window-or-workspace-down = _: {};
+      "Mod+K".focus-window-or-workspace-up = _: {};
+      "Mod+L".focus-column-right = _: {};
 
-      "Mod+Ctrl+Left".move-column-left = null;
-      "Mod+Ctrl+Down".move-window-down = null;
-      "Mod+Ctrl+Up".move-window-up = null;
-      "Mod+Ctrl+Right".move-column-right = null;
-      "Mod+Ctrl+H".move-column-left = null;
-      "Mod+Ctrl+J".move-window-down = null;
-      "Mod+Ctrl+K".move-window-up = null;
-      "Mod+Ctrl+L".move-column-right = null;
+      "Mod+Ctrl+Left".move-column-left = _: {};
+      "Mod+Ctrl+Down".move-window-down = _: {};
+      "Mod+Ctrl+Up".move-window-up = _: {};
+      "Mod+Ctrl+Right".move-column-right = _: {};
+      "Mod+Ctrl+H".move-column-left = _: {};
+      "Mod+Ctrl+J".move-window-down = _: {};
+      "Mod+Ctrl+K".move-window-up = _: {};
+      "Mod+Ctrl+L".move-column-right = _: {};
 
       # Alternative commands that move across workspaces when reaching
       # the first or last window in a column.
@@ -212,28 +212,28 @@
       # "Mod+Ctrl+J".spawn =     { move-window-down-or-to-workspace-down; };
       # "Mod+Ctrl+K".spawn =     { move-window-up-or-to-workspace-up; };
 
-      "Mod+Home".focus-column-first = null;
-      "Mod+End".focus-column-last = null;
-      "Mod+Ctrl+Home".move-column-to-first = null;
-      "Mod+Ctrl+End".move-column-to-last = null;
+      "Mod+Home".focus-column-first = _: {};
+      "Mod+End".focus-column-last = _: {};
+      "Mod+Ctrl+Home".move-column-to-first = _: {};
+      "Mod+Ctrl+End".move-column-to-last = _: {};
 
-      "Mod+Shift+Left".focus-monitor-left = null;
-      "Mod+Shift+Down".focus-monitor-down = null;
-      "Mod+Shift+Up".focus-monitor-up = null;
-      "Mod+Shift+Right".focus-monitor-right = null;
-      "Mod+Shift+H".focus-monitor-left = null;
-      "Mod+Shift+J".focus-monitor-down = null;
-      "Mod+Shift+K".focus-monitor-up = null;
-      "Mod+Shift+L".focus-monitor-right = null;
+      "Mod+Shift+Left".focus-monitor-left = _: {};
+      "Mod+Shift+Down".focus-monitor-down = _: {};
+      "Mod+Shift+Up".focus-monitor-up = _: {};
+      "Mod+Shift+Right".focus-monitor-right = _: {};
+      "Mod+Shift+H".focus-monitor-left = _: {};
+      "Mod+Shift+J".focus-monitor-down = _: {};
+      "Mod+Shift+K".focus-monitor-up = _: {};
+      "Mod+Shift+L".focus-monitor-right = _: {};
 
-      "Mod+Shift+Ctrl+Left".move-column-to-monitor-left = null;
-      "Mod+Shift+Ctrl+Down".move-column-to-monitor-down = null;
-      "Mod+Shift+Ctrl+Up".move-column-to-monitor-up = null;
-      "Mod+Shift+Ctrl+Right".move-column-to-monitor-right = null;
-      "Mod+Shift+Ctrl+H".move-column-to-monitor-left = null;
-      "Mod+Shift+Ctrl+J".move-column-to-monitor-down = null;
-      "Mod+Shift+Ctrl+K".move-column-to-monitor-up = null;
-      "Mod+Shift+Ctrl+L".move-column-to-monitor-right = null;
+      "Mod+Shift+Ctrl+Left".move-column-to-monitor-left = _: {};
+      "Mod+Shift+Ctrl+Down".move-column-to-monitor-down = _: {};
+      "Mod+Shift+Ctrl+Up".move-column-to-monitor-up = _: {};
+      "Mod+Shift+Ctrl+Right".move-column-to-monitor-right = _: {};
+      "Mod+Shift+Ctrl+H".move-column-to-monitor-left = _: {};
+      "Mod+Shift+Ctrl+J".move-column-to-monitor-down = _: {};
+      "Mod+Shift+Ctrl+K".move-column-to-monitor-up = _: {};
+      "Mod+Shift+Ctrl+L".move-column-to-monitor-right = _: {};
 
       # Alternatively, there are commands to move just a single window:
       # Mod+Shift+Ctrl+Left  { move-window-to-monitor-left; }
@@ -243,23 +243,23 @@
       # Mod+Shift+Ctrl+Left  { move-workspace-to-monitor-left; }
       # ...
 
-      "Mod+Page_Down".focus-workspace-down = null;
-      "Mod+Page_Up".focus-workspace-up = null;
-      "Mod+U".focus-workspace-down = null;
-      "Mod+I".focus-workspace-up = null;
-      "Mod+Ctrl+Page_Down".move-column-to-workspace-down = null;
-      "Mod+Ctrl+Page_Up".move-column-to-workspace-up = null;
-      "Mod+Ctrl+U".move-column-to-workspace-down = null;
-      "Mod+Ctrl+I".move-column-to-workspace-up = null;
+      "Mod+Page_Down".focus-workspace-down = _: {};
+      "Mod+Page_Up".focus-workspace-up = _: {};
+      "Mod+U".focus-workspace-down = _: {};
+      "Mod+I".focus-workspace-up = _: {};
+      "Mod+Ctrl+Page_Down".move-column-to-workspace-down = _: {};
+      "Mod+Ctrl+Page_Up".move-column-to-workspace-up = _: {};
+      "Mod+Ctrl+U".move-column-to-workspace-down = _: {};
+      "Mod+Ctrl+I".move-column-to-workspace-up = _: {};
 
       # Alternatively, there are commands to move just a single window:
       # Mod+Ctrl+Page_Down { move-window-to-workspace-down; }
       # ...
 
-      "Mod+Shift+Page_Down".move-workspace-down = null;
-      "Mod+Shift+Page_Up".move-workspace-up = null;
-      "Mod+Shift+U".move-workspace-down = null;
-      "Mod+Shift+I".move-workspace-up = null;
+      "Mod+Shift+Page_Down".move-workspace-down = _: {};
+      "Mod+Shift+Page_Up".move-workspace-up = _: {};
+      "Mod+Shift+U".move-workspace-down = _: {};
+      "Mod+Shift+I".move-workspace-up = _: {};
 
       # You can bind mouse wheel scroll ticks using the following syntax.
       # These binds will change direction based on the natural-scroll setting.
@@ -271,40 +271,40 @@
         _attrs = {
           cooldown-ms = 150;
         };
-        focus-workspace-down = null;
+        focus-workspace-down = _: {};
       };
       "Mod+WheelScrollUp" = {
         _attrs = {
           cooldown-ms = 150;
         };
-        focus-workspace-up = null;
+        focus-workspace-up = _: {};
       };
 
       "Mod+Ctrl+WheelScrollDown" = {
         _attrs = {
           cooldown-ms = 150;
         };
-        move-column-to-workspace-down = null;
+        move-column-to-workspace-down = _: {};
       };
       
       "Mod+Ctrl+WheelScrollUp" = {
         _attrs = {
           cooldown-ms = 150;
         };
-        move-column-to-workspace-up = null;
+        move-column-to-workspace-up = _: {};
       };
 
-      "Mod+WheelScrollRight".focus-column-right = null;
-      "Mod+WheelScrollLeft".focus-column-left = null;
-      "Mod+Ctrl+WheelScrollRight".move-column-right = null;
-      "Mod+Ctrl+WheelScrollLeft".move-column-left = null;
+      "Mod+WheelScrollRight".focus-column-right = _: {};
+      "Mod+WheelScrollLeft".focus-column-left = _: {};
+      "Mod+Ctrl+WheelScrollRight".move-column-right = _: {};
+      "Mod+Ctrl+WheelScrollLeft".move-column-left = _: {};
 
       # Usually scrolling up and down with Shift in applications results in
       # horizontal scrolling; these binds replicate that.
-      "Mod+Shift+WheelScrollDown".focus-column-right = null;
-      "Mod+Shift+WheelScrollUp".focus-column-left = null;
-      "Mod+Ctrl+Shift+WheelScrollDown".move-column-right = null;
-      "Mod+Ctrl+Shift+WheelScrollUp".move-column-left = null;
+      "Mod+Shift+WheelScrollDown".focus-column-right = _: {};
+      "Mod+Shift+WheelScrollUp".focus-column-left = _: {};
+      "Mod+Ctrl+Shift+WheelScrollDown".move-column-right = _: {};
+      "Mod+Ctrl+Shift+WheelScrollUp".move-column-left = _: {};
 
       # Similarly, you can bind touchpad scroll "ticks".
       # Touchpad scrolling is continuous, so for these binds it is split into
@@ -351,28 +351,28 @@
       # The following binds move the focused window in and out of a column.
       # If the window is alone, they will consume it into the nearby column to the side.
       # If the window is already in a column, they will expel it out.
-      "Mod+BracketLeft".consume-or-expel-window-left = null;
-      "Mod+BracketRight".consume-or-expel-window-right = null;
+      "Mod+BracketLeft".consume-or-expel-window-left = _: {};
+      "Mod+BracketRight".consume-or-expel-window-right = _: {};
 
       # Consume one window from the right to the bottom of the focused column.
 
       # Expel the bottom window from the focused column to the right.
 
 
-      "Mod+R".switch-preset-column-width = null;
-      "Mod+Shift+R".switch-preset-window-height = null;
-      "Mod+Ctrl+R".reset-window-height = null;
-      "Mod+F".maximize-column = null;
-      "Mod+Shift+F".fullscreen-window = null;
+      "Mod+R".switch-preset-column-width = _: {};
+      "Mod+Shift+R".switch-preset-window-height = _: {};
+      "Mod+Ctrl+R".reset-window-height = _: {};
+      "Mod+F".maximize-column = _: {};
+      "Mod+Shift+F".fullscreen-window = _: {};
 
       # Expand the focused column to space not taken up by other fully visible columns.
       # Makes the column "fill the rest of the space".
-      "Mod+Ctrl+F".expand-column-to-available-width = null;
+      "Mod+Ctrl+F".expand-column-to-available-width = _: {};
 
       # Mod+C { center-column; }
 
       # Center all fully visible columns on screen.
-      "Mod+Ctrl+C".center-visible-columns = null;
+      "Mod+Ctrl+C".center-visible-columns = _: {};
 
       # Finer width adjustments.
       # This command can also:
@@ -390,13 +390,13 @@
       "Mod+Shift+Equal".set-window-height = "+10%";
 
       # Move the focused window between the floating and the tiling layout.
-      "Mod+V".toggle-window-floating = null;
-      "Mod+Shift+V".switch-focus-between-floating-and-tiling = null;
+      "Mod+V".toggle-window-floating = _: {};
+      "Mod+Shift+V".switch-focus-between-floating-and-tiling = _: {};
 
       # Toggle tabbed column display mode.
       # Windows in this column will appear as vertical tabs,
       # rather than stacked on top of each other.
-      "Mod+W".toggle-column-tabbed-display = null;
+      "Mod+W".toggle-column-tabbed-display = _: {};
 
       # Actions to switch layouts.
       # Note: if you uncomment these, make sure you do NOT have
@@ -406,9 +406,9 @@
       # Mod+Space       { switch-layout "next"; }
       # Mod+Shift+Space { switch-layout "prev"; }
 
-      "Print".screenshot = null;
-      "Ctrl+Print".screenshot-screen = null;
-      # "Alt+Print".screenshot-window = null;
+      "Print".screenshot = _: {};
+      "Ctrl+Print".screenshot-screen = _: {};
+      # "Alt+Print".screenshot-window = _: {};
 
       # Applications such as remote-desktop clients and software KVM switches may
       # request that niri stops processing the keyboard shortcuts defined here
@@ -422,15 +422,15 @@
         _attrs = {
           allow-inhibiting=false;
         };
-        toggle-keyboard-shortcuts-inhibit = null;
+        toggle-keyboard-shortcuts-inhibit = _: {};
       };
 
       # The quit action will show a confirmation dialog to avoid accidental exits.
-      "Mod+Shift+E".quit = null;
+      "Mod+Shift+E".quit = _: {};
       
       # Powers off the monitors. To turn them back on, do any input like
       # moving the mouse or pressing any other key.
-      "Mod+Shift+P".power-off-monitors = null;
+      "Mod+Shift+P".power-off-monitors = _: {};
     };
   };
 }
