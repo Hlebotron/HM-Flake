@@ -92,37 +92,7 @@
         # focus-follows-mouse max-scroll-amount="0%"
       };
 
-      # outputs = {
-      #   "HDMI-A-1" = {
-      #     position = {
-      #       x = -760;
-      #       y = -1440;
-      #     };
-      #     mode = "3440x1440@100";
-      #     scale = 1.0;
-      #     background-color = "#000000";
-      #     variable-refresh-rate = _: {};
-      #   };
-      #   "eDP-1" = {
-      #     position = {
-      #       x = 0;
-      #       y = 0;
-      #     };
-      #     scale = 1.0;
-      #     background-color = "#000000";
-      #     variable-refresh-rate = _: {};
-      #   };
-      #   "DP-1" = {
-      #     position = {
-      #       x = -760;
-      #       y = -1440;
-      #     };
-      #     mode = "3440x1440@100";
-      #     scale = 1.0;
-      #     background-color = "#000000";
-      #     variable-refresh-rate = _: {};
-      #   };
-      # };
+
 
       # You can configure outputs by their name, which you can find
       # by running `niri msg outputs` while inside a niri instance.
@@ -351,13 +321,13 @@
 
       # Work around WezTerm's initial configure bug
       # by setting an empty default-column-width.
-      window-rule = {
+      # window-rule = {
         # This regular expression is intentionally made as specific as possible,
         # since this is the default config, and we want no false positives.
         # You can get away with just app-id="wezterm" if you want.
         # match app-id=r#"^org\.wezfurlong\.wezterm$"#
         #   default-column-width {}
-      };
+      # };
 
       # Open the Firefox picture-in-picture player as floating by default.
       # window-rule = {
@@ -382,11 +352,33 @@
 
       # Example: enable rounded corners for all windows.
       # (This example rule is commented out with a "/-" in front.)
-      # /-window-rule {
-      #   geometry-corner-radius 12
-      #     clip-to-geometry true
-      # }
+      window-rule = {
+        geometry-corner-radius = 10;
+        clip-to-geometry = true;
+      };
 
+      extraConfig = ''
+        output "HDMI-A-1" {
+          position x=-760 y=-1440
+          mode "3440x1440@100"
+          scale 1.0
+          background-color "#000000"
+          variable-refresh-rate
+        }
+        output "eDP-1" {
+          position x=0 y=0
+          scale 1.0
+          background-color "#000000"
+          variable-refresh-rate
+        }
+        output "DP-1" {
+          position x=-760 y=-1440 
+          mode "3440x1440@100"
+          scale 1.0
+          background-color "#000000"
+          variable-refresh-rate
+        }
+      '';
       
     };
   };

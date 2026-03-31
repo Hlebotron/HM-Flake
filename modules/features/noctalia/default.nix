@@ -124,13 +124,12 @@
               {
                 id = "PowerProfile";
               }
-
               {
                 deviceNativePath = "";
                 displayMode = "alwaysShow";
                 hideIfNotDetected = true;
                 id = "Battery";
-                showNoctaliaPerformance = false;
+                showNoctaliaPerformance = true;
                 showPowerProfiles = false;
                 warningThreshold = 20;
               }
@@ -275,7 +274,7 @@
           allowPanelsOnScreenWithoutBar = true;
           animationDisabled = false;
           animationSpeed = 1;
-          # avatarImage = ../../nixos/features/wallpaper/gruvbox-mountain-village.png;
+          avatarImage = ../wallpaper/Hackerman.jpg;
           boxRadiusRatio = 1;
           compactLockScreen = false;
           dimmerOpacity = 0.15;
@@ -480,7 +479,9 @@
         };
         wallpaper = {
           # bye bye
-          enabled = false;
+          directory = ../wallpaper;
+          setWallpaperOnAllMonitors = true;
+          enabled = true;
         };
       };
     };
